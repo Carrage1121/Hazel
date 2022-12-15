@@ -6,6 +6,7 @@
 #include "Hazel/Events/Event.h"
 #include "Hazel/Events/ApplicationEvent.h"
 
+#include "Input.h"
 #include "Window.h"
 namespace Hazel {
 
