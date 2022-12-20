@@ -1,13 +1,19 @@
 #pragma once
 
 #ifdef HZ_PLATFORM_WINDOWS
+#if HZ_DYNAMIC_LINK
 #ifdef HZ_BUILD_DLL
-#define HAZEL_API  __declspec(dllexport)
+#define HAZEL_API __declspec(dllexport)
 #else
-#define HAZEL_API  __declspec(dllimport)
-#endif // HZ_BULID_DLL
-#else #error Hazel only support Windows
-#endif // HZ_PLATFORM_WINDOWS
+#define HAZEL_API __declspec(dllimport)
+#endif
+#else
+#define HAZEL_API
+#endif
+#else
+#error Hazel only supports Windows!
+#endif
+
 
 #ifdef HZ_ENABLE_ASSERTS
 #define HZ_ASSERT(x, ...) { if(!(x)) { HZ_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }

@@ -9,6 +9,7 @@ public:
 		: Layer("Example")
 	{
 	}
+
 	void OnUpdate() override
 	{
 		if (Hazel::Input::IsKeyPressed(HZ_KEY_TAB))
@@ -17,10 +18,9 @@ public:
 
 	virtual void OnImGuiRender() override
 	{
-		// TODO: LNK2019 error
-		//ImGui::Begin("Test");
-		//ImGui::Text("Hello World");
-		//ImGui::End();
+		ImGui::Begin("Test");
+		ImGui::Text("Hello World");
+		ImGui::End();
 	}
 
 	void OnEvent(Hazel::Event& event) override
@@ -33,7 +33,9 @@ public:
 			HZ_TRACE("{0}", (char)e.GetKeyCode());
 		}
 	}
+
 };
+
 class Sandbox : public Hazel::Application
 {
 public:
@@ -44,8 +46,11 @@ public:
 
 	~Sandbox()
 	{
+
 	}
+
 };
+
 Hazel::Application* Hazel::CreateApplication()
 {
 	return new Sandbox();
